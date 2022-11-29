@@ -7,7 +7,7 @@ function Header(props) {
   }, [])
 
   const openForm = (e) => {
-    if(e.key === ' ') {
+    if(e.keyCode === 13) {
         props.displayForm();
     }
   }
