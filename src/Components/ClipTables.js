@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const dummy_data = [
   {
@@ -17,6 +17,7 @@ const dummy_data = [
 
 const ClipTables = (props) => {
   const [passedData, setPassedData] = useState(dummy_data);
+
 
   return (
     <>

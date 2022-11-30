@@ -8,7 +8,7 @@ function App() {
   const [hideHeader, setHideHeader] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [tab, setTab] = useState(1);
-  const [tab1Data, setTab1Data] = useState([{name: 'lol', script: "lol2", tab:1}]);
+  const [tab1Data, setTab1Data] = useState('');
   const [tab2Data, setTab2Data] = useState('');
   const [tab3Data, setTab3Data] = useState('');
   const [tab4Data, setTab4Data] = useState('');
@@ -35,7 +35,6 @@ function App() {
       {hideHeader !== false && (
         <>
         <ClipTabs showForm={showForm} hideForm={hideForm} getActiveTab={getActiveTab} getData={getData}/>
-        <button onClick={() => console.log(tab1Data)}>zz</button>
         <ClipTables activeTab={tab}/>
         
         </>

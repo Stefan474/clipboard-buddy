@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const dummy_data2 = [{
-    id:99999,
-    name:"Hello",
-    script:"World",
-    tab:5
-}]
 
 const ClipTabs = (props) => {
   const [activeTab, setActiveTab] = useState(1); 
-  const [passedData, setPassedData] = useState(dummy_data2); //put local saved data here to load data on refresh
+  const [passedData, setPassedData] = useState(); //put local saved data here to load data on refresh
   const [enteredName, setEnteredName] = useState();
   const [enteredScript, setEnteredScript] = useState();
 
@@ -29,14 +23,6 @@ const ClipTabs = (props) => {
   const hideFormHandler = (e) => {
     e.preventDefault();
     props.hideForm();
-    const newData = {
-        
-        name: enteredName,
-        script: enteredScript,
-        tab: activeTab
-    }
-    setPassedData((previousData) => [...previousData, newData])
-    setTimeout(props.getData(passedData), 400)
   };
 
   const enteredData = () => {};
