@@ -18,7 +18,6 @@ const dummy_data = [
 const ClipTables = (props) => {
   const [passedData, setPassedData] = useState(dummy_data);
 
-
   return (
     <>
       <div className="bg-base-200 h-screen">

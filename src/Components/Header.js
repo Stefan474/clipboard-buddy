@@ -3,21 +3,19 @@ import React, { useState, useEffect } from "react";
 function Header(props) {
   const [displayHeader, setDisplayHeader] = useState(true);
   useEffect(() => {
-    document.addEventListener('keydown', openForm, true)
-  }, [])
+    document.addEventListener("keydown", openForm, true);
+  }, []);
 
   const openForm = (e) => {
-    if(e.keyCode === 13) {
-        props.displayForm();
+    if (e.keyCode === 13) {
+      props.displayForm();
     }
-  }
+  };
 
   const hideHandler = () => {
     setDisplayHeader(false);
     props.displayContent();
-  }
-
-
+  };
 
   return (
     <>
@@ -62,17 +60,19 @@ function Header(props) {
       )}
       {displayHeader === false && (
         <div className="navbar bg-neutral text-neutral-content flex-row justify-between align-middle">
-          <a className="btn btn-ghost normal-case text-3xl ml-20">📎ClipBuddy</a>
+          <a className="btn btn-ghost normal-case text-3xl ml-20">
+            📎ClipBuddy
+          </a>
           <div>
-          <button className="btn btn-primary" onClick={props.displayForm}>Add a new clip!</button>
-          <label
-            htmlFor="my-modal"
-            className="btn btn-accent mx-2 align-right mr-4  p-3  mt-0"
-          >
-            See tutorial again
-          </label>
-          
-         
+            <button className="btn btn-primary" onClick={props.displayForm}>
+              Add a new clip!
+            </button>
+            <label
+              htmlFor="my-modal"
+              className="btn btn-accent mx-2 align-right mr-4  p-3  mt-0"
+            >
+              See tutorial again
+            </label>
           </div>
           <input type="checkbox" id="my-modal" className="modal-toggle" />
           <div className="modal">

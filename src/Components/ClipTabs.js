@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-
 const ClipTabs = (props) => {
-  const [activeTab, setActiveTab] = useState(1); 
-  const [passedData, setPassedData] = useState(); //put local saved data here to load data on refresh
+  const [activeTab, setActiveTab] = useState(1);
+  const [passedData, setPassedData] = useState([]); //put local saved data here to load data on refresh
   const [enteredName, setEnteredName] = useState();
   const [enteredScript, setEnteredScript] = useState();
 
@@ -11,18 +10,26 @@ const ClipTabs = (props) => {
     props.getActiveTab(activeTab);
   }, [activeTab]);
 
+  useEffect(() => {
+    props.getData(passedData);
+  }, [passedData]);
+
   const nameHandler = (e) => {
-    setEnteredName(e.target.value)
-  }
+    setEnteredName(e.target.value);
+  };
   const scriptHandler = (e) => {
-    setEnteredScript(e.target.value)
-  }
-
-
+    setEnteredScript(e.target.value);
+  };
 
   const hideFormHandler = (e) => {
     e.preventDefault();
     props.hideForm();
+    setPassedData({
+      scriptName: enteredName,
+      script: enteredScript,
+      tab: activeTab,
+      id: 1000000,
+    });
   };
 
   const enteredData = () => {};
