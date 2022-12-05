@@ -5,6 +5,7 @@ const ClipTabs = (props) => {
   const [passedData, setPassedData] = useState([]); //put local saved data here to load data on refresh
   const [enteredName, setEnteredName] = useState();
   const [enteredScript, setEnteredScript] = useState();
+  const [idCounter, setIdCounter] = useState(0);
 
   useEffect(() => {
     props.getActiveTab(activeTab);
@@ -12,6 +13,7 @@ const ClipTabs = (props) => {
 
   useEffect(() => {
     props.getData(passedData);
+    setIdCounter(idCounter + 1);
   }, [passedData]);
 
   const nameHandler = (e) => {
@@ -28,7 +30,8 @@ const ClipTabs = (props) => {
       scriptName: enteredName,
       script: enteredScript,
       tab: activeTab,
-      id: 1000000,
+      id: idCounter,
+      key: idCounter,
     });
   };
 
