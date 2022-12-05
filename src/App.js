@@ -8,34 +8,27 @@ function App() {
   const [hideHeader, setHideHeader] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [tab, setTab] = useState(1);
-  const [tab1Data, setTab1Data] = useState([
-    { scriptName: "", Script: "", id: 99999, tab: 5 },
-  ]);
-  const [tab2Data, setTab2Data] = useState([
-    { scriptName: "", Script: "", id: 99998, tab: 5 },
-  ]);
-  const [tab3Data, setTab3Data] = useState([
-    { scriptName: "", Script: "", id: 99997, tab: 5 },
-  ]);
-  const [tab4Data, setTab4Data] = useState([
-    { scriptName: "", Script: "", id: 99996, tab: 5 },
-  ]);
+  const [tab1Data, setTab1Data] = useState([]);
+  const [tab2Data, setTab2Data] = useState([]);
+  const [tab3Data, setTab3Data] = useState([]);
+  const [tab4Data, setTab4Data] = useState([]);
   const [receivedData, setReceivedData] = useState([]);
   const [itemId, setItemId] = useState(0);
+
+  let i = 0;
 
   useEffect(() => {
     console.log(receivedData);
     receivedData.map((data) => {
-      if (data.tab === 1) setTab1Data((previousData) => [...previousData, data]);
+      if (data.tab === 1)
+        setTab1Data((previousData) => [...previousData, data]);
       else if (data.tab === 2) console.log(data);
       else if (data.tab === 3) console.log(data);
       else if (data.tab === 4) console.log(data);
     });
   }, [receivedData]);
 
-  useEffect(() => {
-    
-  }, [])
+  useEffect(() => {}, []);
 
   const displayContent = () => {
     setHideHeader(true);
